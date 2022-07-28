@@ -30,8 +30,8 @@ services:
     env_file: 
       - ./keycloak.dev.env 
     ports: 
-      - "127.0.0.1:38180:8080" 
-      - "127.0.0.1:8787:8787" # debug port 
+      - "38180:8080" 
+      - "8787:8787" # debug port 
     networks: 
       - auth-backend 
 networks: 
