@@ -27,11 +27,16 @@ services:
     image: "jboss/keycloak:15.0.2" 
     depends_on: 
       - "postgres" 
+      - "pgadmin" 
     env_file: 
       - ./keycloak.dev.env 
     ports: 
       - "38180:8080" 
       - "8787:8787" # debug port 
+    # entrypoint: ["/bin/bash","-c"]
+    # command: [
+    #   /opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password password %%
+    #   /opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE"]
     networks: 
       - auth-backend 
 networks: 
